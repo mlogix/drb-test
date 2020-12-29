@@ -1,0 +1,67 @@
+version: "3.7"
+
+services:
+
+  server0:
+    build: .
+    image: drb-test-server
+    container_name: drb_test_server0
+    stdin_open: true
+    tty: true
+
+    ports:
+      - "8787:8787"
+
+    networks:
+      drb_test:
+        aliases:
+          - server0
+
+  server1:
+    image: drb-test-server
+    container_name: drb_test_server1
+    stdin_open: true
+    tty: true
+
+    ports:
+      - "8788:8787"
+
+    networks:
+      drb_test:
+        aliases:
+          - server1
+
+
+  server2:
+    image: drb-test-server
+    container_name: drb_test_server2
+    stdin_open: true
+    tty: true
+
+    ports:
+      - "8789:8787"
+
+    networks:
+      drb_test:
+        aliases:
+          - server2
+
+
+  server3:
+    image: drb-test-server
+    container_name: drb_test_server3
+    stdin_open: true
+    tty: true
+
+    ports:
+      - "8790:8787"
+
+    networks:
+      drb_test:
+        aliases:
+          - server3
+
+
+networks:
+  drb_test:
+    driver: bridge
